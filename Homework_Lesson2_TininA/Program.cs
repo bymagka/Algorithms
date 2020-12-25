@@ -13,7 +13,15 @@ using System.Threading.Tasks;
 //b.рекурсивно;
 //c. * рекурсивно, используя свойство четности степени.
 
-
+/*
+    * 3. Исполнитель Калькулятор преобразует целое число, записанное на экране. У исполнителя две команды, каждой команде присвоен номер:
+Прибавь 1
+Умножь на 2
+Первая команда увеличивает число на экране на 1, вторая увеличивает это число в 2 раза. Сколько существует программ, которые число 3 преобразуют в число 20?
+а) с использованием массива;
+б) с использованием рекурсии.
+ * 
+ */
 namespace Homework_Lesson2_TininA
 {
     class Program
@@ -26,8 +34,70 @@ namespace Homework_Lesson2_TininA
             //2. Реализовать функцию возведения числа a в степень b
             MyPow();
 
+            //Калькулятор
+            Calculate();
+
 
             Console.ReadLine();
+        }
+
+        //Калькулятор
+        private static void Calculate()
+        {
+            //а) с использованием массива;
+            CalculateWithArray();
+
+            //б) с использованием рекурсии.
+            int start = int.Parse(Console.ReadLine());
+
+            int final = int.Parse(Console.ReadLine());
+
+            int p = 1;
+
+            int n = 2;
+
+            Console.WriteLine(CalculateWithRec(p,n,start,final));
+
+
+
+        }
+
+        //Калькулятор
+        //б) с использованием рекурсии.
+        private static int CalculateWithRec(int p,int n,int start,int final)
+        {
+            if (final < start) return 0;
+            if (final == start) return 1;
+
+            if (final % 2 == 0) return CalculateWithRec(p, n, start, final / n) + CalculateWithRec(p, n, start, final - p);
+            else return CalculateWithRec(p, n, start, final - p);
+        }
+
+        //Калькулятор
+        //а) с использованием массива;
+        private static void CalculateWithArray()
+        {
+            int start = int.Parse(Console.ReadLine());
+
+            int final = int.Parse(Console.ReadLine());
+
+            int p = 1;
+
+            int n = 2;
+
+            int[] intArray = new int[final + 1];
+
+            intArray[start] = 1;
+
+            for (int i = start + 1; i <= final; i++)
+            {
+                if (i % 2 == 0) intArray[i] = intArray[i / n] + intArray[i - p];
+                else intArray[i] = intArray[i - p];
+
+                Console.Write("\t" + intArray[i]);
+            }
+
+            Console.WriteLine("\n" + intArray[final]);
         }
 
 
@@ -86,7 +156,7 @@ namespace Homework_Lesson2_TininA
             Console.WriteLine(MyPowWithRec(a, b,0,1));
 
             //рекурсивно, используя свойство четности степени.;
-            Console.WriteLine(MyPowWithRec(a, b, 0, 1));
+            Console.WriteLine(MyPowWithRecOddPow(a, b, 0, 1));
         }
 
         //2. Реализовать функцию возведения числа a в степень b
@@ -121,8 +191,16 @@ namespace Homework_Lesson2_TininA
             iterator++;
 
             //если число четное - перемножаем значения "половинных" значений степеней. Если нечетная степень - умножаем число на число в степени b-1
-            if (b % 2 == 0) return MyPowWithRecOddPow(a, b, iterator, MyPowWithRecOddPow(a,b/2,iterator,result) * MyPowWithRecOddPow(a, b / 2, iterator, result));
-            else return MyPowWithRecOddPow(a, b, iterator, MyPowWithRecOddPow(a, b -1, iterator, result) * a);
+            if (b % 2 == 0)
+            {
+                int halfPow = MyPowWithRecOddPow(a, b / 2, 0, result);
+                return halfPow * halfPow;
+            }
+            else
+            {
+                return MyPowWithRecOddPow(a, b - 1, iterator, result) * a;
+                
+            }
 
         }
 
