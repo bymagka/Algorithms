@@ -84,6 +84,9 @@ namespace Homework_Lesson2_TininA
 
             //b.рекурсивно;
             Console.WriteLine(MyPowWithRec(a, b,0,1));
+
+            //рекурсивно, используя свойство четности степени.;
+            Console.WriteLine(MyPowWithRec(a, b, 0, 1));
         }
 
         //2. Реализовать функцию возведения числа a в степень b
@@ -107,6 +110,20 @@ namespace Homework_Lesson2_TininA
 
             iterator++;
             return MyPowWithRec(a, b, iterator,result * a);
+        }
+
+        //2. Реализовать функцию возведения числа a в степень b
+        //c. * рекурсивно, используя свойство четности степени.
+        private static int MyPowWithRecOddPow(int a, int b, int iterator, int result)
+        {
+            if (iterator == b) return result;
+
+            iterator++;
+
+            //если число четное - перемножаем значения "половинных" значений степеней. Если нечетная степень - умножаем число на число в степени b-1
+            if (b % 2 == 0) return MyPowWithRecOddPow(a, b, iterator, MyPowWithRecOddPow(a,b/2,iterator,result) * MyPowWithRecOddPow(a, b / 2, iterator, result));
+            else return MyPowWithRecOddPow(a, b, iterator, MyPowWithRecOddPow(a, b -1, iterator, result) * a);
+
         }
 
     }
