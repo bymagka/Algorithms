@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 
  * 
  * 2. *Реализовать шейкерную сортировку
+ * 
+ * 3. Реализовать бинарный алгоритм поиска в виде функции, которой передается отсортированный
+    массив. Функция возвращает индекс найденного элемента или -1, если элемент не найден.
  */
 namespace Homework_Lesson3_TininA
 {
@@ -55,7 +58,34 @@ namespace Homework_Lesson3_TininA
 
             Console.WriteLine("\n" + iterator);
 
+            Console.WriteLine("\n");
+
+            //Реализовать бинарный алгоритм поиска в виде функции, которой передается отсортированный массив.
+            Console.WriteLine(SearchAlgorithm(c, int.Parse(Console.ReadLine())));
+
             Console.ReadLine();
+        }
+
+        //Реализовать бинарный алгоритм поиска в виде функции, которой передается отсортированный массив.
+        private static int SearchAlgorithm(int[] c, int value)
+        {
+
+            int leftBound = c.GetLowerBound(0);
+            int rightBound = c.Length;
+            int middleIndex = 0;
+
+            while (leftBound != rightBound)
+            {
+                middleIndex = (leftBound + rightBound) / 2;
+
+                if (c[middleIndex] == value) return middleIndex;
+                else if (c[middleIndex] > value) rightBound = middleIndex-1;
+                else leftBound = middleIndex+1;
+
+            }
+ 
+
+            return -1;
         }
 
         //обычная сортировка с выводом количества любых операций
