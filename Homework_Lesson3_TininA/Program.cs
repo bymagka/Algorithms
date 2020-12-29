@@ -10,7 +10,7 @@ using System.Threading.Tasks;
     возвращают количество операций.
 
  * 
- * 
+ * 2. *Реализовать шейкерную сортировку
  */
 namespace Homework_Lesson3_TininA
 {
@@ -33,7 +33,20 @@ namespace Homework_Lesson3_TininA
             Console.WriteLine("\n" + iterator);
             Console.WriteLine("\n");
             //оптимизированная сортировка с выводом количества любых операций
-            OptimizedBubbleSort(ref a, out iterator);
+            int[] b = new int[] { 8, 3, 5, 7, 8, 12, 7, 4, 3, 8, 14 };
+            OptimizedBubbleSort(ref b, out iterator);
+
+            foreach (var item in a)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine("\n" + iterator);
+            Console.WriteLine("\n");
+
+            //Шейкерная сортировка
+            int[] c = new int[] { 8, 3, 5, 7, 8, 12, 7, 4, 3, 8, 14 };
+            ShakeSort(ref c, out iterator);
 
             foreach (var item in a)
             {
@@ -102,5 +115,51 @@ namespace Homework_Lesson3_TininA
                 if (!Flag) break;
             }
         }
+
+        //шейкерная сортировка
+        private static void ShakeSort(ref int[] a, out int iterator)
+        {
+            iterator = 0;
+
+            int leftBound = 1;
+            int rightBound = a.GetUpperBound(0);
+
+            while(leftBound <= rightBound)
+            {
+                for(int i = rightBound; i >= leftBound; i--)
+                {
+                    iterator++;
+
+                    if(a[i-1] > a[i])
+                    {
+                        iterator++;
+
+                        int temp = a[i];
+                        a[i] = a[i - 1];
+                        a[i - 1] = temp;
+                        
+                    }
+                }
+                leftBound++;
+
+                for (int i = leftBound; i <= rightBound; i++)
+                {
+                    iterator++;
+
+                    if (a[i - 1] > a[i])
+                    {
+                        iterator++;
+
+                        int temp = a[i];
+                        a[i] = a[i - 1];
+                        a[i - 1] = temp;
+                     
+                    }
+                }
+                rightBound--;
+            }
+        }
+
+
     }
 }
