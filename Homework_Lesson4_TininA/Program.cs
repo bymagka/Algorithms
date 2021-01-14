@@ -108,6 +108,7 @@ namespace Homework_Lesson4_TininA
             int i_max = SequenceMatrix.GetUpperBound(0);
             int j_max = SequenceMatrix[i_max].GetUpperBound(0);
 
+
             return int.Parse(SequenceMatrix[i_max][j_max]);
 
         }
