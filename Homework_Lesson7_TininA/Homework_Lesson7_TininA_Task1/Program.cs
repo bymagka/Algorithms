@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+//подключение пространства имен с графами (задание 4)
 using Graphs;
 
 namespace Homework_Lesson7_TininA_Task1
@@ -15,6 +16,10 @@ namespace Homework_Lesson7_TininA_Task1
             Graph gr = new Graph(@"..\..\matrix.txt");
             gr.Print();
 
+
+            Console.WriteLine();
+
+            Console.WriteLine(gr.PrintDFS());
 
             Console.ReadLine();
         }

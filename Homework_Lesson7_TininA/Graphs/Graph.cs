@@ -21,6 +21,7 @@ namespace Graphs
     public class Graph
     {
         int[][] matrix;
+        string way = String.Empty;
 
         public Graph(string filename)
         {
@@ -51,6 +52,7 @@ namespace Graphs
 
         }
 
+        //печать матрицы смежности
         public void Print()
         {
             for(int i = 0; i < matrix.Length; i++)
@@ -62,6 +64,46 @@ namespace Graphs
                     Console.Write($" {matrix[i][j]}");
                 }
             }
+        }
+
+        //печатает путь обхода с вершины А
+        public string PrintDFS()
+        {
+            //здесь храним актуальную вершину
+            Stack<int> actualPosition = new Stack<int>();
+
+            actualPosition.Push(0);
+
+            //здесь храним те вершины, в которых мы уже были
+            bool[] nodes = new bool[matrix.Length];
+            nodes[0] = true;
+
+            
+
+            dfs(actualPosition, nodes);
+
+            return way;
+        }
+
+        private void dfs(Stack<int> actualPosition,  bool[] nodes)
+        {
+            int node = actualPosition.Pop();
+
+            for(int i = 0; i < matrix[node].Length; i++)
+            {
+                //если в этой вершине уже были, то сюда не надо
+                if (nodes[i]) continue;
+
+                if(matrix[node][i] != 0)
+                {
+                    //если есть номер, значит есть маршрут в эту вершину. передаем эту вершину в рекурсию и дописываем путь обхода.
+                    actualPosition.Push(i);
+                    nodes[i] = true;
+                    way += matrix[node][i].ToString();
+                    dfs(actualPosition, nodes);
+                }
+            }
+            
         }
     }
 }
