@@ -72,11 +72,11 @@ namespace Graphs
             //здесь храним актуальную вершину
             Stack<int> actualPosition = new Stack<int>();
 
-            actualPosition.Push(0);
+            actualPosition.Push(3);
 
             //здесь храним те вершины, в которых мы уже были
             bool[] nodes = new bool[matrix.Length];
-            nodes[0] = true;
+            nodes[3] = true;
 
             
 
