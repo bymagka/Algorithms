@@ -19,6 +19,7 @@ namespace Homework_Lesson7_TininA_Task1
 
             Console.WriteLine();
 
+            //задание 2 (обход в глубину)
             Console.WriteLine(gr.PrintDFS());
 
             Console.ReadLine();
