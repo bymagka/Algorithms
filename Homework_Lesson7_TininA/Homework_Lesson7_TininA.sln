@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework_Lesson7_TininA_Task1", "Homework_Lesson7_TininA_Task1\Homework_Lesson7_TininA_Task1.csproj", "{5ABE9A59-65A6-4767-BEC0-BBF30BBADB40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphs", "Graphs\Graphs.csproj", "{3CECC644-24C3-41D6-8D1A-EF2AD66BB858}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5ABE9A59-65A6-4767-BEC0-BBF30BBADB40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ABE9A59-65A6-4767-BEC0-BBF30BBADB40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ABE9A59-65A6-4767-BEC0-BBF30BBADB40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ABE9A59-65A6-4767-BEC0-BBF30BBADB40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CECC644-24C3-41D6-8D1A-EF2AD66BB858}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CECC644-24C3-41D6-8D1A-EF2AD66BB858}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CECC644-24C3-41D6-8D1A-EF2AD66BB858}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CECC644-24C3-41D6-8D1A-EF2AD66BB858}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {38687876-0F09-4110-B287-BC718611D94A}
+	EndGlobalSection
+EndGlobal
