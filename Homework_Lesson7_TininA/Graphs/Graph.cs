@@ -69,6 +69,7 @@ namespace Graphs
         //печатает путь обхода с вершины А
         public string PrintDFS()
         {
+            way = String.Empty;
             //здесь храним актуальную вершину
             Stack<int> actualPosition = new Stack<int>();
 
